@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>网易探索之旅</title>
-    <style>
-        * {
+    
+        <!-- 百度统计 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f8d5a30e2231b8f99fadf0ff52bf3f6";
+        hm.onload = function() {
+            console.log('[统计] 百度统计加载成功');
+        };
+        hm.onerror = function() {
+            console.error('[统计] 百度统计加载失败');
+        };
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
             margin: 0;
             padding: 0;
             box-sizing: border-box;
