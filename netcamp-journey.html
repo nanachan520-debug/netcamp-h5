@@ -34,7 +34,6 @@
             background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            touch-action: none;
         }
 
         #app {
@@ -46,18 +45,14 @@
             overflow: hidden;
         }
 
+        /* 页面显示/隐藏控制 */
         .page {
             min-height: 100vh;
             padding: 40px 24px 80px 24px;
-            display: flex;
+            display: none;
             flex-direction: column;
             width: 100%;
             position: relative;
-        }
-
-        /* 页面显示/隐藏控制 */
-        .page {
-            display: none;
         }
 
         .page.active {
@@ -103,6 +98,8 @@
             vertical-align: middle;
             margin-right: 8px;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+            width: 40px;
+            height: 40px;
         }
 
         /* 标题样式 */
@@ -136,17 +133,8 @@
             box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
             width: 100%;
             max-width: 280px;
-            margin: 0 auto;
+            margin: 20px auto;
             display: block;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
         }
 
         /* 封面页 */
@@ -197,10 +185,6 @@
             text-align: center;
         }
 
-        .option-item:hover {
-            background: #fff0f2;
-        }
-
         .option-item.selected {
             border-color: #C41E3A;
             background: #fff0f2;
@@ -234,18 +218,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        @keyframes pop {
-            0% { transform: scale(0); }
-            80% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            gap: 10px;
         }
 
         .egg-title {
             font-size: 22px;
             color: #C41E3A;
-            text-align: center;
             margin-bottom: 16px;
             font-weight: bold;
         }
@@ -296,22 +274,6 @@
             stroke-linecap: round;
         }
 
-        .match-svg-line.dragging {
-            stroke-dasharray: 8, 4;
-            opacity: 0.7;
-        }
-
-        .match-svg-line.error {
-            stroke: #FF6B6B;
-            animation: lineError 0.3s ease;
-        }
-
-        @keyframes lineError {
-            0% { stroke-width: 3; }
-            50% { stroke-width: 6; }
-            100% { stroke-width: 3; }
-        }
-
         .match-game {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -341,44 +303,27 @@
             line-height: 1.4;
             position: relative;
             z-index: 20;
-            touch-action: none;
         }
 
         .match-card.left-card {
             cursor: grab;
         }
 
-        .match-card.left-card:active {
-            cursor: grabbing;
-        }
-
         .match-card.left-card.dragging {
             border-color: #C41E3A;
             background: #fff0f2;
-            transform: scale(1.02);
-        }
-
-        .match-card.right-card {
-            cursor: default;
         }
 
         .match-card.right-card.hovered {
             border-color: #C41E3A;
             background: #fff0f2;
-            transform: scale(1.02);
         }
 
         .match-card.matched {
             border-color: #52c41a;
             background: #f6ffed;
             color: #52c41a;
-            opacity: 0.8;
             cursor: default;
-        }
-
-        .match-card.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
 
         /* 证书页 */
@@ -451,21 +396,6 @@
             border: 2px solid #C41E3A;
         }
 
-        .btn-secondary:hover {
-            background: #fff0f2;
-        }
-
-        /* 成功提示 */
-        .success-animation {
-            animation: success 0.6s ease;
-        }
-
-        @keyframes success {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
         /* 响应式适配 */
         @media (max-width: 375px) {
             .page {
@@ -483,15 +413,11 @@
             }
 
             .ip-corner-bottom {
-                bottom: 15px;
-                right: 15px;
                 width: 100px;
                 height: 100px;
             }
 
             .ip-corner-bottom-small {
-                bottom: 15px;
-                right: 15px;
                 width: 80px;
                 height: 80px;
             }
@@ -499,19 +425,344 @@
             .page-logo {
                 width: 50px;
                 height: 50px;
-                bottom: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 后面从 <div id="app"> 到 </body> 的内容保持您的原样不变 -->
-    <!-- 请复制您原本从 <div id="app"> 到结尾的所有内容 -->
     <div id="app">
-        <!-- ... 您的所有页面内容 ... -->
+        <!-- 页1：封面页 -->
+        <div id="page1" class="page active">
+            <div class="cover-decoration">🚀</div>
+            <h1 class="page-title">网易探索之旅</h1>
+            <p class="page-subtitle">3个神秘关卡<br>测测你对未来东家了解多少</p>
+            <button class="btn" onclick="showPage(2)">开始闯关</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+            <img class="ip-photo ip-corner-bottom" src="./images/soci划重点.png" alt="soci划重点">
+        </div>
+
+        <!-- 页2：第一关 -->
+        <div id="page2" class="page">
+            <h1 class="page-title">第一关 · 历史之谜</h1>
+            <div class="question-box">
+                <p class="question-text">网易成立于哪一年？</p>
+                <div class="options-grid">
+                    <div class="option-item" onclick="selectOption(1, 'A')">A. 1995</div>
+                    <div class="option-item" onclick="selectOption(1, 'B')">B. 1997</div>
+                    <div class="option-item" onclick="selectOption(1, 'C')">C. 2000</div>
+                    <div class="option-item" onclick="selectOption(1, 'D')">D. 2003</div>
+                </div>
+            </div>
+            <div id="error1" class="error-tip">不对哦，再试一次</div>
+            <button class="btn" onclick="submitAnswer(1, 'B', 3)">提交答案</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页3：彩蛋页① -->
+        <div id="page3" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁">
+                <h2 class="egg-title">恭喜！解锁隐藏彩蛋①</h2>
+            </div>
+            <div class="egg-title">【网易老照片】</div>
+            <div class="egg-image">📷</div>
+            <p class="egg-content">1997年，网易在广州诞生。这是当年的办公室老照片。</p>
+            <button class="btn" onclick="showPage(4)">前往下一关</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页4：第二关 -->
+        <div id="page4" class="page">
+            <h1 class="page-title">第二关 · 游戏侦探</h1>
+            <div class="question-box">
+                <p class="question-text">以下哪个不是互娱的代表作品？</p>
+                <div class="options-grid">
+                    <div class="option-item" onclick="selectOption(2, 'A')">A. 梦幻西游</div>
+                    <div class="option-item" onclick="selectOption(2, 'B')">B. 阴阳师</div>
+                    <div class="option-item" onclick="selectOption(2, 'C')">C. 网易云音乐</div>
+                    <div class="option-item" onclick="selectOption(2, 'D')">D. 蛋仔派对</div>
+                </div>
+            </div>
+            <div id="error2" class="error-tip">不对哦，再试一次</div>
+            <button class="btn" onclick="submitAnswer(2, 'C', 5)">提交答案</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页5：彩蛋页② -->
+        <div id="page5" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁">
+                <h2 class="egg-title">恭喜！解锁隐藏彩蛋②</h2>
+            </div>
+            <div class="egg-title">【游戏幕后故事】</div>
+            <div class="egg-image">🎮</div>
+            <p class="egg-content">《燕云十六声》开发了整整5年，团队为了还原宋代街景，专门去杭州南宋御街一块一块研究地砖纹样。</p>
+            <button class="btn" onclick="showPage(6)">前往下一关</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页6：第三关·连连看 -->
+        <div id="page6" class="page">
+            <h1 class="page-title">第三关 · 价值观连连看</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">按住左侧卡片拖拽到右侧对应卡片上完成配对</p>
+            <div class="match-game-container" id="matchGameContainer">
+                <svg class="match-svg-container" id="matchSvg"></svg>
+                <div class="match-game">
+                    <div class="match-column">
+                        <div class="match-card left-card" id="left1" data-index="1">1. 为热爱全心投入</div>
+                        <div class="match-card left-card" id="left2" data-index="2">2. 和用户在一起</div>
+                        <div class="match-card left-card" id="left3" data-index="3">3. 从0到1是创新，从1到1.1也是</div>
+                    </div>
+                    <div class="match-column">
+                        <div class="match-card right-card" id="rightA" data-option="A">A. 从用户需求出发，打造赏心悦目的精品</div>
+                        <div class="match-card right-card" id="rightB" data-option="B">B. 人无我有是创新，人有我优也是创新</div>
+                        <div class="match-card right-card" id="rightC" data-option="C">C. 保持热情与好奇心，洞察问题本质</div>
+                    </div>
+                </div>
+            </div>
+            <div id="matchError" class="error-tip">配对错误，再试试</div>
+            <button class="btn" onclick="submitMatch()">提交配对</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页7：彩蛋页③ -->
+        <div id="page7" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁">
+                <h2 class="egg-title">恭喜！解锁隐藏彩蛋③</h2>
+            </div>
+            <div class="egg-title">【园区里不一样的同事】</div>
+            <div class="egg-image">🐱</div>
+            <p class="egg-content">网易园区里住着一群特殊的"同事"——流浪猫。它们有自己的名字和工牌，入职后说不定能在园区偶遇它们哦～</p>
+            <button class="btn" onclick="showPage(8)">领取证书</button>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+        </div>
+
+        <!-- 页8：证书页 -->
+        <div id="page8" class="page">
+            <div class="certificate-container">
+                <div class="certificate-title">🎉 恭喜你完成全部探索！</div>
+                <p class="certificate-text">恭喜你对网易的认识更深了，期待你的加入！</p>
+                <div id="certName" class="certificate-name" onclick="editName()">点击输入姓名</div>
+                <input id="certInput" class="certificate-name-input" type="text" style="display:none;" onblur="saveName()">
+                <div class="certificate-identity">身份：2026届准网易er</div>
+            </div>
+            <div class="cert-buttons">
+                <button class="btn" onclick="shareCertificate()">保存证书 / 分享</button>
+                <button class="btn btn-secondary" onclick="restart()">再玩一次</button>
+            </div>
+            <img class="page-logo" src="./images/logo.png" alt="网易logo">
+            <img class="ip-photo ip-corner-bottom-small" src="./images/soci大拇指点赞.png" alt="soci点赞">
+        </div>
     </div>
+
     <script>
-        // ... 您的所有JavaScript代码 ...
+        // 当前选中的选项
+        let selectedOption = {1: null, 2: null};
+        
+        // 连连看状态
+        let matchState = {
+            dragging: false,
+            dragIndex: null,
+            matches: {}
+        };
+
+        // 证书姓名
+        let certificateName = '';
+
+        // 页面切换
+        function showPage(pageNum) {
+            for(let i = 1; i <= 8; i++) {
+                document.getElementById('page' + i).classList.remove('active');
+            }
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+
+        // 选择题
+        function selectOption(question, option) {
+            selectedOption[question] = option;
+        }
+
+        function submitAnswer(question, correct, nextPage) {
+            if(selectedOption[question] === correct) {
+                showPage(nextPage);
+                document.getElementById('error' + question).classList.remove('show');
+            } else {
+                document.getElementById('error' + question).classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('error' + question).classList.remove('show');
+                }, 2000);
+            }
+        }
+
+        // 拖拽连连看
+        let startX, startY, currentLine = null;
+
+        document.querySelectorAll('.left-card').forEach(card => {
+            card.addEventListener('mousedown', startDrag);
+            card.addEventListener('touchstart', startDrag);
+        });
+
+        function startDrag(e) {
+            e.preventDefault();
+            const card = e.target.closest('.left-card');
+            if(!card || card.classList.contains('matched')) return;
+
+            matchState.dragging = true;
+            matchState.dragIndex = card.dataset.index;
+
+            const rect = card.getBoundingClientRect();
+            const containerRect = document.getElementById('matchGameContainer').getBoundingClientRect();
+            startX = rect.left + rect.width/2 - containerRect.left;
+            startY = rect.top + rect.height/2 - containerRect.top;
+
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchmove', onDrag);
+            document.addEventListener('touchend', endDrag);
+        }
+
+        function onDrag(e) {
+            if(!matchState.dragging) return;
+            e.preventDefault();
+
+            const containerRect = document.getElementById('matchGameContainer').getBoundingClientRect();
+            let clientX, clientY;
+
+            if(e.touches) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            const endX = clientX - containerRect.left;
+            const endY = clientY - containerRect.top;
+
+            const svg = document.getElementById('matchSvg');
+            if(!currentLine) {
+                currentLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                currentLine.classList.add('match-svg-line', 'dragging');
+                svg.appendChild(currentLine);
+            }
+
+            currentLine.setAttribute('x1', startX);
+            currentLine.setAttribute('y1', startY);
+            currentLine.setAttribute('x2', endX);
+            currentLine.setAttribute('y2', endY);
+        }
+
+        function endDrag(e) {
+            if(!matchState.dragging) return;
+
+            const containerRect = document.getElementById('matchGameContainer').getBoundingClientRect();
+            let clientX, clientY;
+
+            if(e.changedTouches) {
+                clientX = e.changedTouches[0].clientX;
+                clientY = e.changedTouches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            const element = document.elementFromPoint(clientX, clientY);
+            const rightCard = element?.closest('.right-card');
+
+            if(rightCard && !rightCard.classList.contains('matched')) {
+                const leftIndex = matchState.dragIndex;
+                const rightOption = rightCard.dataset.option;
+
+                const correctPairs = {'1': 'C', '2': 'A', '3': 'B'};
+
+                if(correctPairs[leftIndex] === rightOption) {
+                    // 配对正确
+                    matchState.matches[leftIndex] = rightOption;
+                    document.getElementById('left' + leftIndex).classList.add('matched');
+                    rightCard.classList.add('matched');
+
+                    // 画固定线
+                    const leftCard = document.getElementById('left' + leftIndex);
+                    const leftRect = leftCard.getBoundingClientRect();
+                    const rightRect = rightCard.getBoundingClientRect();
+                    
+                    const svg = document.getElementById('matchSvg');
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.classList.add('match-svg-line');
+                    line.setAttribute('x1', leftRect.left + leftRect.width/2 - containerRect.left);
+                    line.setAttribute('y1', leftRect.top + leftRect.height/2 - containerRect.top);
+                    line.setAttribute('x2', rightRect.left + rightRect.width/2 - containerRect.left);
+                    line.setAttribute('y2', rightRect.top + rightRect.height/2 - containerRect.top);
+                    line.id = 'line-' + leftIndex;
+                    svg.appendChild(line);
+                } else {
+                    // 配对错误
+                    document.getElementById('matchError').classList.add('show');
+                    setTimeout(() => {
+                        document.getElementById('matchError').classList.remove('show');
+                    }, 2000);
+                }
+            }
+
+            // 清理拖拽线
+            if(currentLine) {
+                currentLine.remove();
+                currentLine = null;
+            }
+
+            matchState.dragging = false;
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', endDrag);
+            document.removeEventListener('touchmove', onDrag);
+            document.removeEventListener('touchend', endDrag);
+        }
+
+        function submitMatch() {
+            if(matchState.matches['1'] === 'C' && 
+               matchState.matches['2'] === 'A' && 
+               matchState.matches['3'] === 'B') {
+                showPage(7);
+            } else {
+                document.getElementById('matchError').textContent = '请先完成所有正确配对';
+                document.getElementById('matchError').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('matchError').classList.remove('show');
+                    document.getElementById('matchError').textContent = '配对错误，再试试';
+                }, 2000);
+            }
+        }
+
+        // 证书功能
+        function editName() {
+            document.getElementById('certName').style.display = 'none';
+            const input = document.getElementById('certInput');
+            input.style.display = 'block';
+            input.value = certificateName;
+            input.focus();
+        }
+
+        function saveName() {
+            const input = document.getElementById('certInput');
+            certificateName = input.value;
+            const display = document.getElementById('certName');
+            display.style.display = 'block';
+            display.textContent = certificateName || '点击输入姓名';
+            input.style.display = 'none';
+        }
+
+        function shareCertificate() {
+            if(!certificateName) {
+                alert('请先输入姓名');
+                editName();
+                return;
+            }
+            alert(`恭喜 ${certificateName}！\n你已成为2026届准网易er！`);
+        }
+
+        function restart() {
+            location.reload();
+        }
     </script>
 </body>
 </html>
