@@ -48,7 +48,7 @@
 
         .page {
             min-height: 100vh;
-            padding: 40px 24px 80px 24px;
+            padding: 40px 24px 160px 24px;
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -70,9 +70,10 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
+            width: 120px;
+            height: 120px;
             object-fit: contain;
+            z-index: 5;
         }
 
         /* IP照片样式 */
@@ -85,17 +86,19 @@
         .ip-corner-bottom {
             bottom: 20px;
             right: 20px;
-            width: 120px;
-            height: 120px;
+            width: 240px;
+            height: 240px;
             object-fit: contain;
+            z-index: 10;
         }
 
         .ip-corner-bottom-small {
             bottom: 20px;
             right: 20px;
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             object-fit: contain;
+            z-index: 10;
         }
 
         .ip-unlock {
@@ -262,6 +265,27 @@
             justify-content: center;
             font-size: 60px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* 彩蛋页实际图片样式 */
+        .egg-real-image {
+            width: 100%;
+            max-width: 300px;
+            max-height: 200px;
+            height: auto;
+            border-radius: 16px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        /* 图片加载失败时的占位样式 */
+        .egg-real-image.onerror {
+            min-height: 150px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
         }
 
         .egg-content {
@@ -469,7 +493,7 @@
         /* 响应式适配 */
         @media (max-width: 375px) {
             .page {
-                padding: 30px 16px 70px 16px;
+                padding: 30px 16px 140px 16px;
             }
 
             .page-title {
@@ -485,21 +509,26 @@
             .ip-corner-bottom {
                 bottom: 15px;
                 right: 15px;
-                width: 100px;
-                height: 100px;
+                width: 160px;
+                height: 160px;
             }
 
             .ip-corner-bottom-small {
                 bottom: 15px;
                 right: 15px;
-                width: 80px;
-                height: 80px;
+                width: 140px;
+                height: 140px;
             }
 
             .page-logo {
-                width: 50px;
-                height: 50px;
+                width: 80px;
+                height: 80px;
                 bottom: 15px;
+            }
+
+            .egg-real-image {
+                max-width: 260px;
+                max-height: 160px;
             }
         }
     </style>
@@ -513,9 +542,9 @@
             <p class="page-subtitle">3个神秘关卡<br>测测你对未来东家了解多少</p>
             <button class="btn" onclick="startGame()">开始闯关</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
             <!-- 右下角IP照片 -->
-            <img class="ip-photo ip-corner-bottom" src="./images/soci划重点.png" alt="soci划重点" />
+            <img class="ip-photo ip-corner-bottom" src="./images/soci划重点.png" alt="soci划重点" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页2：第一关·历史之谜 -->
@@ -533,24 +562,25 @@
             <div id="q1-error" class="error-tip">不对哦，再试一次 🤔</div>
             <button class="btn" onclick="submitQuestion(1)">提交答案</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页3：彩蛋页① -->
         <div id="page3" class="page">
             <div class="egg-header">
-                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" />
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
                 <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋①</h2>
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【网易老照片】</div>
-            <div class="egg-image">📷</div>
+            <img class="egg-real-image" src="./images/egg1-photo.jpg" alt="网易老照片" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">📷</div>
             <p class="egg-content">
                 1997年，网易在广州诞生。<br>
                 这是当年的办公室老照片。
             </p>
             <button class="btn" onclick="showPage(4)">前往下一关</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页4：第二关·游戏侦探 -->
@@ -568,17 +598,18 @@
             <div id="q2-error" class="error-tip">不对哦，再试一次 🤔</div>
             <button class="btn" onclick="submitQuestion(2)">提交答案</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页5：彩蛋页② -->
         <div id="page5" class="page">
             <div class="egg-header">
-                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" />
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
                 <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋②</h2>
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【游戏幕后故事】</div>
-            <div class="egg-image">🎮</div>
+            <img class="egg-real-image" src="./images/egg2-story.gif" alt="游戏幕后故事" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">🎮</div>
             <p class="egg-content">
                 《燕云十六声》开发了整整5年，<br>
                 团队为了还原宋代街景，<br>
@@ -586,7 +617,7 @@
             </p>
             <button class="btn" onclick="showPage(6)">前往下一关</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页6：第三关·价值观连连看 -->
@@ -639,25 +670,25 @@
             <div id="match-error" class="error-tip">配对错误，再试试 🤔</div>
             <button class="btn" onclick="submitMatchGame()">提交配对</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页7：彩蛋页③ -->
         <div id="page7" class="page">
             <div class="egg-header">
-                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" />
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
                 <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋③</h2>
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【园区里不一样的同事】</div>
-            <div class="egg-image">🐱</div>
+            <img class="egg-real-image" src="./images/egg3-cat.jpg" alt="网易猫咪" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">🐱</div>
             <p class="egg-content">
-                网易园区里住着一群特殊的"同事"——流浪猫。<br>
-                它们有自己的名字和工牌，<br>
-                入职后说不定能在园区偶遇它们哦～
+                网易部分园区里住着一群特殊的"同事"——流浪猫。<br>
+                入职后说不定能在园区偶遇它们哦~
             </p>
             <button class="btn" onclick="goToCertificate()">领取证书</button>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页8：证书页 -->
@@ -677,9 +708,9 @@
                 <button class="btn btn-secondary" onclick="restartGame()">再玩一次</button>
             </div>
             <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" />
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
             <!-- 右下角IP照片 -->
-            <img class="ip-photo ip-corner-bottom-small" src="./images/soci大拇指点赞.png" alt="soci点赞" />
+            <img class="ip-photo ip-corner-bottom-small" src="./images/soci大拇指点赞.png" alt="soci点赞" onerror="this.style.display='none'" />
         </div>
     </div>
 
