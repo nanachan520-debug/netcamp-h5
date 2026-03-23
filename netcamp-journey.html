@@ -288,6 +288,27 @@
             background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
         }
 
+        /* 广告位样式 */
+        .ad-banner {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #fff0f2 0%, #ffe4e6 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #C41E3A;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(196, 30, 58, 0.2);
+            z-index: 15;
+            transition: all 0.3s ease;
+        }
+
+        .ad-banner:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+
         .egg-content {
             font-size: 15px;
             color: #666;
@@ -539,10 +560,8 @@
         <div id="page1" class="page active">
             <div class="cover-decoration">🚀</div>
             <h1 class="page-title">网易探索之旅</h1>
-            <p class="page-subtitle">3个神秘关卡<br>测测你对未来东家了解多少</p>
+            <p class="page-subtitle">7个神秘关卡<br>测测你对未来东家了解多少</p>
             <button class="btn" onclick="startGame()">开始闯关</button>
-            <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
             <!-- 右下角IP照片 -->
             <img class="ip-photo ip-corner-bottom" src="./images/soci划重点.png" alt="soci划重点" onerror="this.style.display='none'" />
         </div>
@@ -587,7 +606,7 @@
         <div id="page4" class="page">
             <div class="page-title">第二关 · 游戏侦探</div>
             <div class="question-box">
-                <p class="question-text">以下哪个不是互娱的代表作品？</p>
+                <p class="question-text">以下哪个不是网易游戏的代表作品？</p>
                 <div class="options-grid">
                     <div class="option-item" id="q2-option-A" onclick="selectOption(2, 'A')">A. 梦幻西游</div>
                     <div class="option-item" id="q2-option-B" onclick="selectOption(2, 'B')">B. 阴阳师</div>
@@ -683,10 +702,9 @@
             <img class="egg-real-image" src="./images/egg3-cat.jpg" alt="网易猫咪" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="egg-image" style="display:none;">🐱</div>
             <p class="egg-content">
-                网易部分园区里住着一群特殊的"同事"——流浪猫。<br>
-                入职后说不定能在园区偶遇它们哦~
+                网易部分园区里住着一群特殊的"同事"——网易喵。入职后说不定能在园区偶遇它们哦～
             </p>
-            <button class="btn" onclick="goToCertificate()">领取证书</button>
+            <button class="btn" onclick="showPage(9)">前往下一关</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
@@ -695,7 +713,7 @@
         <div id="page8" class="page">
             <div class="certificate-container">
                 <div class="certificate-title">🎉 恭喜你完成全部探索！</div>
-                <p class="certificate-text">恭喜你对网易的认识更深了，<br>期待你的加入！</p>
+                <p class="certificate-text">相信你对网易的认识更深了，<br>我们期待你的加入！</p>
 
                 <div id="certificate-name-display" class="certificate-name" onclick="editName()">点击输入姓名</div>
                 <input id="certificate-name-input" class="certificate-name-input" type="text" placeholder="请输入你的姓名" onblur="finishEditing()" style="display: none;" />
@@ -704,13 +722,165 @@
             </div>
 
             <div class="cert-buttons">
-                <button class="btn" onclick="saveCertificate()">保存证书 / 分享</button>
                 <button class="btn btn-secondary" onclick="restartGame()">再玩一次</button>
             </div>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
             <!-- 右下角IP照片 -->
             <img class="ip-photo ip-corner-bottom-small" src="./images/soci大拇指点赞.png" alt="soci点赞" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- 页9：第四关·数字密码 -->
+        <div id="page9" class="page">
+            <div class="page-title">第四关 · 数字密码</div>
+            <div class="question-box">
+                <p class="question-text">网易在香港交易所的股票代码是多少？</p>
+                <div class="options-grid">
+                    <div class="option-item" id="q3-option-A" onclick="selectOption(3, 'A')">A. 9999.HK</div>
+                    <div class="option-item" id="q3-option-B" onclick="selectOption(3, 'B')">B. 8888.HK</div>
+                    <div class="option-item" id="q3-option-C" onclick="selectOption(3, 'C')">C. 6666.HK</div>
+                    <div class="option-item" id="q3-option-D" onclick="selectOption(3, 'D')">D. 7777.HK</div>
+                </div>
+            </div>
+            <div id="q3-error" class="error-tip">不对哦，再试一次 🤔</div>
+            <button class="btn" onclick="submitQuestion(3)">提交答案</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- 页10：彩蛋页④-长长久久的祝福 -->
+        <div id="page10" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
+                <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋④</h2>
+            </div>
+            <div class="egg-title" style="font-size: 18px; color: #333;">【长长久久的祝福】</div>
+            <p class="egg-content">
+                "9999"不仅是代码，更是网易对每一位同学的承诺。愿你在网易的旅程，收获长久的成长、陪伴与热爱。
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0;">
+                <img src="./images/badge-1year.png" alt="1周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
+                <img src="./images/badge-3year.png" alt="3周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
+                <img src="./images/badge-6year.png" alt="6周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
+                <img src="./images/badge-10year.png" alt="10周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
+                <img src="./images/ring-10year.png" alt="10周年戒指" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
+            </div>
+            <button class="btn" onclick="showPage(11)">前往下一关</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+            <!-- 广告位 -->
+            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
+        </div>
+
+        <!-- 页11：第五关·时光印记 -->
+        <div id="page11" class="page">
+            <div class="page-title">第五关 · 时光印记</div>
+            <div class="question-box">
+                <p class="question-text">网易成立于1997年，到2026年，网易已经多少岁了？</p>
+                <div class="options-grid">
+                    <div class="option-item" id="q4-option-A" onclick="selectOption(4, 'A')">A. 26岁</div>
+                    <div class="option-item" id="q4-option-B" onclick="selectOption(4, 'B')">B. 27岁</div>
+                    <div class="option-item" id="q4-option-C" onclick="selectOption(4, 'C')">C. 28岁</div>
+                    <div class="option-item" id="q4-option-D" onclick="selectOption(4, 'D')">D. 29岁</div>
+                </div>
+            </div>
+            <div id="q4-error" class="error-tip">不对哦，再试一次 🤔</div>
+            <button class="btn" onclick="submitQuestion(4)">提交答案</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- 页12：彩蛋页⑤-第一件文化衫的秘密 -->
+        <div id="page12" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
+                <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋⑤</h2>
+            </div>
+            <div class="egg-title" style="font-size: 18px; color: #333;">【第一件文化衫的秘密】</div>
+            <p class="egg-content">
+                每一年的司庆，网易都会为员工定制专属文化衫。2026年是网易29岁生日，你的第一件文化衫，正在等你！
+            </p>
+            <button class="btn" onclick="showPage(13)">前往下一关</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+            <!-- 广告位 -->
+            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
+        </div>
+
+        <!-- 页13：第六关·精品信仰 -->
+        <div id="page13" class="page">
+            <div class="page-title">第六关 · 精品信仰</div>
+            <div class="question-box">
+                <p class="question-text">"网易出品，必属精品"是网易人的信念。以下哪个也是网易对"精品"的追求？</p>
+                <div class="options-grid">
+                    <div class="option-item" id="q5-option-A" onclick="selectOption(5, 'A')">A. 游戏画面4K</div>
+                    <div class="option-item" id="q5-option-B" onclick="selectOption(5, 'B')">B. 员工食堂也要做"精品"</div>
+                    <div class="option-item" id="q5-option-C" onclick="selectOption(5, 'C')">C. 代码0 Bug</div>
+                    <div class="option-item" id="q5-option-D" onclick="selectOption(5, 'D')">D. 全部都是</div>
+                </div>
+            </div>
+            <div id="q5-error" class="error-tip">不对哦，再试一次 🤔</div>
+            <button class="btn" onclick="submitQuestion(5)">提交答案</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- 页14：彩蛋页⑥-舌尖上的网易 -->
+        <div id="page14" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
+                <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋⑥</h2>
+            </div>
+            <div class="egg-title" style="font-size: 18px; color: #333;">【舌尖上的网易】</div>
+            <p class="egg-content">
+                网易食堂每天提供N道菜品！从广式烧腊到杭州片儿川，从川味小炒到日式拉面。精品，从每一顿饭开始。
+            </p>
+            <button class="btn" onclick="showPage(15)">前往下一关</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+            <!-- 广告位 -->
+            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
+        </div>
+
+        <!-- 页15：第七关·你的后盾 -->
+        <div id="page15" class="page">
+            <div class="page-title">第七关 · 你的后盾</div>
+            <div class="question-box">
+                <p class="question-text">在网易遇到任何问题（工作/生活/成长），都可以找谁求助？</p>
+                <div class="options-grid">
+                    <div class="option-item" id="q6-option-A" onclick="selectOption(6, 'A')">A. 部门领导</div>
+                    <div class="option-item" id="q6-option-B" onclick="selectOption(6, 'B')">B. HRBP</div>
+                    <div class="option-item" id="q6-option-C" onclick="selectOption(6, 'C')">C. HRGSOC</div>
+                    <div class="option-item" id="q6-option-D" onclick="selectOption(6, 'D')">D. 以上都是，还可以群内找Soci小助</div>
+                </div>
+            </div>
+            <div id="q6-error" class="error-tip">不对哦，再试一次 🤔</div>
+            <button class="btn" onclick="submitQuestion(6)">提交答案</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- 页16：彩蛋页⑦-你的网易"导航员" -->
+        <div id="page16" class="page">
+            <div class="egg-header">
+                <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
+                <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋⑦</h2>
+            </div>
+            <div class="egg-title" style="font-size: 18px; color: #333;">【你的网易"导航员"】</div>
+            <p class="egg-content">
+                在网易，你不是一个人在战斗。<br>
+                HRGSOC（HR全球共享运营中心）的 Soci 小助，会陪伴你整个网易历程：<br>
+                - 入职流程不清楚？找 Soci<br>
+                - 档户业务想办理？找 Soci<br>
+                - 遇事不决需帮助？还是找 Soci
+            </p>
+            <img class="egg-real-image" src="./images/soci-helper.png" alt="soci小助" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">🤖</div>
+            <button class="btn" onclick="goToCertificate()">前往证书页</button>
+            <!-- 底部居中logo -->
+            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
+            <!-- 广告位 -->
+            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
         </div>
     </div>
 
@@ -726,7 +896,15 @@
             5: '彩蛋页②-游戏幕后故事',
             6: '第三关-价值观连连看',
             7: '彩蛋页③-园区猫咪',
-            8: '证书页'
+            8: '证书页',
+            9: '第四关-数字密码',
+            10: '彩蛋页④-长长久久的祝福',
+            11: '第五关-时光印记',
+            12: '彩蛋页⑤-第一件文化衫的秘密',
+            13: '第六关-精品信仰',
+            14: '彩蛋页⑥-舌尖上的网易',
+            15: '第七关-你的后盾',
+            16: '彩蛋页⑦-你的网易导航员'
         };
 
         // 统计 - 页面浏览 (PV)
@@ -792,9 +970,13 @@
         });
 
         // ========== 游戏状态 ==========
-        
+
         let question1 = { selected: null };
         let question2 = { selected: null };
+        let question3 = { selected: null };  // 第四关-股票代码
+        let question4 = { selected: null };  // 第五关-司龄
+        let question5 = { selected: null };  // 第六关-精品信仰
+        let question6 = { selected: null };  // 第七关-HRGSOC
 
         let matchGame = {
             isDragging: false,
@@ -814,9 +996,9 @@
             if (currentPage !== pageNumber) {
                 recordPageStay(currentPage);
             }
-            
+
             // 隐藏所有页面
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 1; i <= 16; i++) {
                 document.getElementById('page' + i).classList.remove('active');
             }
             // 显示目标页面
@@ -826,7 +1008,7 @@
 
             // 更新当前页面
             currentPage = pageNumber;
-            
+
             // 统计页面浏览
             trackPageView(pageNumber);
 
@@ -834,9 +1016,9 @@
             if (pageNumber === 6) {
                 setTimeout(updateAllLines, 100);
             }
-            
-            // 如果进入页面8（证书页），记录通关
-            if (pageNumber === 8 && !hasCompleted) {
+
+            // 如果进入页面8或16（证书页），记录通关
+            if ((pageNumber === 8 || pageNumber === 16) && !hasCompleted) {
                 hasCompleted = true;
                 trackEvent('游戏进度', '通关完成', '到达证书页', 1);
             }
@@ -852,48 +1034,83 @@
             // 设置选中状态
             document.getElementById('q' + questionNum + '-option-' + option).classList.add('selected');
             // 保存选择
-            if (questionNum === 1) {
-                question1.selected = option;
-            } else {
-                question2.selected = option;
+            switch(questionNum) {
+                case 1:
+                    question1.selected = option;
+                    break;
+                case 2:
+                    question2.selected = option;
+                    break;
+                case 3:
+                    question3.selected = option;
+                    break;
+                case 4:
+                    question4.selected = option;
+                    break;
+                case 5:
+                    question5.selected = option;
+                    break;
+                case 6:
+                    question6.selected = option;
+                    break;
             }
             // 隐藏错误提示
             document.getElementById('q' + questionNum + '-error').classList.remove('show');
         }
 
         function submitQuestion(questionNum) {
-            let selected, correctAnswer, errorElement;
+            let selected, correctAnswer, errorElement, nextPage;
 
-            if (questionNum === 1) {
-                selected = question1.selected;
-                correctAnswer = 'B';
-                errorElement = document.getElementById('q1-error');
-            } else {
-                selected = question2.selected;
-                correctAnswer = 'C';
-                errorElement = document.getElementById('q2-error');
+            switch(questionNum) {
+                case 1:
+                    selected = question1.selected;
+                    correctAnswer = 'B';
+                    errorElement = document.getElementById('q1-error');
+                    nextPage = 3;
+                    break;
+                case 2:
+                    selected = question2.selected;
+                    correctAnswer = 'C';
+                    errorElement = document.getElementById('q2-error');
+                    nextPage = 5;
+                    break;
+                case 3:
+                    selected = question3.selected;
+                    correctAnswer = 'A';
+                    errorElement = document.getElementById('q3-error');
+                    nextPage = 10;
+                    break;
+                case 4:
+                    selected = question4.selected;
+                    correctAnswer = 'D';
+                    errorElement = document.getElementById('q4-error');
+                    nextPage = 12;
+                    break;
+                case 5:
+                    selected = question5.selected;
+                    correctAnswer = 'D';
+                    errorElement = document.getElementById('q5-error');
+                    nextPage = 14;
+                    break;
+                case 6:
+                    selected = question6.selected;
+                    correctAnswer = 'D';
+                    errorElement = document.getElementById('q6-error');
+                    nextPage = 16;
+                    break;
+                default:
+                    return;
             }
 
             if (selected === correctAnswer) {
                 // 答对，跳转下一页
-                if (questionNum === 1) {
-                    // 统计 - 第一关答对
-                    trackEvent('答题结果', '第一关', '答对', 1);
-                    showPage(3);
-                } else {
-                    // 统计 - 第二关答对
-                    trackEvent('答题结果', '第二关', '答对', 1);
-                    showPage(5);
-                }
+                trackEvent('答题结果', '第' + questionNum + '关', '答对', 1);
+                showPage(nextPage);
             } else {
                 // 答错，显示错误提示
                 errorElement.classList.add('show');
                 // 统计 - 答错
-                if (questionNum === 1) {
-                    trackEvent('答题结果', '第一关', '答错', 0);
-                } else {
-                    trackEvent('答题结果', '第二关', '答错', 0);
-                }
+                trackEvent('答题结果', '第' + questionNum + '关', '答错', 0);
                 setTimeout(() => {
                     errorElement.classList.remove('show');
                 }, 2000);
@@ -1203,12 +1420,17 @@
                 svg.removeChild(svg.firstChild);
             }
         }
-        
+
         // 跳转到证书页（带统计）
         function goToCertificate() {
             // 统计 - 点击领取证书
-            trackEvent('游戏进度', '点击领取证书', '从彩蛋页③', 1);
+            trackEvent('游戏进度', '点击领取证书', '从彩蛋页', 1);
             showPage(8);
+        }
+
+        // 广告位点击提示
+        function showAdTip() {
+            alert('可联系HRGSOC Soci小助');
         }
         
         // 开始游戏（带统计）
@@ -1267,10 +1489,14 @@
         function restartGame() {
             // 统计 - 点击再玩一次
             trackEvent('证书页', '点击再玩一次', '重新开始', 1);
-            
+
             // 重置题目状态
             question1 = { selected: null };
             question2 = { selected: null };
+            question3 = { selected: null };
+            question4 = { selected: null };
+            question5 = { selected: null };
+            question6 = { selected: null };
 
             // 重置连连看
             resetMatchGame();
@@ -1280,13 +1506,19 @@
             document.getElementById('certificate-name-display').textContent = '点击输入姓名';
 
             // 重置选择题选项状态
-            for (let i = 1; i <= 2; i++) {
+            for (let i = 1; i <= 6; i++) {
                 for (let j = 65; j <= 68; j++) {
-                    document.getElementById('q' + i + '-option-' + String.fromCharCode(j)).classList.remove('selected');
+                    const optionEl = document.getElementById('q' + i + '-option-' + String.fromCharCode(j));
+                    if (optionEl) {
+                        optionEl.classList.remove('selected');
+                    }
                 }
-                document.getElementById('q' + i + '-error').classList.remove('show');
+                const errorEl = document.getElementById('q' + i + '-error');
+                if (errorEl) {
+                    errorEl.classList.remove('show');
+                }
             }
-            
+
             // 重置完成状态
             hasCompleted = false;
 
