@@ -70,11 +70,10 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 240px;
-            height: 240px;
+            width: 120px;
+            height: 120px;
             object-fit: contain;
-            pointer-events: none;
-            z-index: 1;
+            z-index: 5;
         }
 
         /* IP照片样式 */
@@ -543,8 +542,8 @@
             }
 
             .page-logo {
-                width: 160px;
-                height: 160px;
+                width: 80px;
+                height: 80px;
                 bottom: 15px;
             }
 
@@ -727,7 +726,7 @@
                 <p style="font-size: 16px; color: #333; line-height: 2;">愿你在网易的旅程，<br>收获长久的成长、陪伴与热爱。<br><span style="color: #C41E3A; font-weight: bold;">期待与你，网易相见！</span></p>
             </div>
 
-            <button class="btn" onclick="restartGame()">再玩一次</button>
+            <button class="btn" onclick="goToPage1()">再玩一次</button>
         </div>
 
         <!-- 页9：第四关·数字密码 -->
@@ -994,6 +993,10 @@
         let certificateName = '';
 
         // ========== 页面切换功能 ==========
+
+        function goToPage1() {
+            showPage(1);
+        }
 
         function showPage(pageNumber) {
             // 记录上一页停留时长
