@@ -70,10 +70,11 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 120px;
+            width: 240px;
+            height: 240px;
             object-fit: contain;
-            z-index: 5;
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* IP照片样式 */
@@ -542,8 +543,8 @@
             }
 
             .page-logo {
-                width: 80px;
-                height: 80px;
+                width: 160px;
+                height: 160px;
                 bottom: 15px;
             }
 
@@ -702,8 +703,7 @@
             <img class="egg-real-image" src="./images/egg3-cat.jpg" alt="网易猫咪" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="egg-image" style="display:none;">🐱</div>
             <p class="egg-content">
-                网易部分园区里住着一群可爱的"同事"——网易喵。<br>
-                入职后说不定能在园区偶遇它们哦～
+                网易部分园区里住着一群可爱的"同事"——网易喵。入职后说不定能在园区偶遇它们哦～
             </p>
             <button class="btn" onclick="showPage(9)">前往下一关</button>
             <!-- 底部居中logo -->
@@ -716,7 +716,7 @@
                 <span style="font-size: 32px;">🎉</span>
             </div>
             <h1 style="font-size: 26px; color: #C41E3A; font-weight: bold; margin-bottom: 16px;">恭喜通关！</h1>
-            <h2 style="font-size: 20px; color: #333; font-weight: bold; margin-bottom: 8px;">你已完成全部7个神秘关卡</h2>
+            <h2 style="font-size: 20px; color: #333; font-weight: bold; margin-bottom: 8px;">你已完成全部神秘关卡</h2>
             <p style="font-size: 16px; color: #666; margin-bottom: 30px;">感谢你对网易的探索与热爱</p>
 
             <div style="margin: 30px 0;">
@@ -797,8 +797,11 @@
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【网易er专属文化衫】</div>
             <p class="egg-content">
-                每年的6月24日是司庆日，我们在这天穿上承接热爱气质的文化衫，用各种特别的方式祝网易生日快乐！<br>
-                我们不仅穿同样的衣服，也将共同的本质穿在身上，<br>
+                每年的6月24日是司庆日，<br>
+                我们在这天穿上承接热爱气质的文化衫，<br>
+                用各种特别的方式祝网易生日快乐！<br>
+                我们不仅穿同样的衣服，<br>
+                也将共同的本质穿在身上，<br>
                 永远庆祝热爱，为用户，为我们，为每一个你。
             </p>
             <img class="egg-real-image" src="./images/culture-shirt.jpg" alt="文化衫" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
@@ -834,10 +837,9 @@
                 <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋⑥</h2>
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【舌尖上的网易】</div>
-            <p class="egg-content">
+            <p class="egg-content" style="text-align: center;">
                 员工是网易最大的财富，我们关注你的衣食住行。<br>
-                网易食堂每天提供N道菜品，<br>
-                从广式烧腊到杭州片儿川，从川味小炒到日式拉面。<br>
+                网易食堂每天提供N道菜品，从广式烧腊到杭州片儿川，从川味小炒到日式拉面。<br>
                 精品，从每一顿饭开始。
             </p>
             <img class="egg-real-image" src="./images/canteen.png" alt="食堂" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
@@ -873,7 +875,8 @@
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【你的网易"导航员"】</div>
             <p class="egg-content">
-                在网易，你不是一个人在战斗。HRGSOC（HR全球共享运营中心）会陪伴你整个网易历程，吉祥物Soci是你的网易搭子：<br>
+                在网易，你不是一个人在战斗。<br>
+                HRGSOC（HR全球共享运营中心）会陪伴你整个网易历程，吉祥物Soci是你的网易搭子：<br>
                 - 入职流程不清楚？找 Soci<br>
                 - 档户业务想办理？找 Soci<br>
                 - 遇事不决需帮助？还是找 Soci
