@@ -702,7 +702,7 @@
             <img class="egg-real-image" src="./images/egg3-cat.jpg" alt="网易猫咪" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="egg-image" style="display:none;">🐱</div>
             <p class="egg-content">
-                网易部分园区里住着一群特殊的"同事"——网易喵。<br>
+                网易部分园区里住着一群可爱的"同事"——网易喵。<br>
                 入职后说不定能在园区偶遇它们哦～
             </p>
             <button class="btn" onclick="showPage(9)">前往下一关</button>
@@ -710,23 +710,24 @@
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
-        <!-- 页8：证书页 -->
-        <div id="page8" class="page">
-            <div class="certificate-container">
-                <div class="certificate-title">🎉 恭喜你完成全部探索！</div>
-                <p class="certificate-text">相信你对网易的认识更深了，<br>我们期待你的加入！</p>
+        <!-- 页8：游戏结尾页 -->
+        <div id="page8" class="page" style="justify-content: center; align-items: center; text-align: center; padding: 40px 24px;">
+            <div style="margin-bottom: 20px;">
+                <span style="font-size: 32px;">🎉</span>
+            </div>
+            <h1 style="font-size: 26px; color: #C41E3A; font-weight: bold; margin-bottom: 16px;">恭喜通关！</h1>
+            <h2 style="font-size: 20px; color: #333; font-weight: bold; margin-bottom: 8px;">你已完成全部7个神秘关卡</h2>
+            <p style="font-size: 16px; color: #666; margin-bottom: 30px;">感谢你对网易的探索与热爱</p>
 
-                <div id="certificate-name-display" class="certificate-name" onclick="editName()">点击输入姓名</div>
-                <input id="certificate-name-input" class="certificate-name-input" type="text" placeholder="请输入你的姓名" onblur="finishEditing()" style="display: none;" />
-
-                <div class="certificate-identity">身份：2026届准网易er</div>
+            <div style="margin: 30px 0;">
+                <img src="./images/soci拿花.gif" alt="soci拿花" style="width: 200px; height: auto; display: block; margin: 0 auto;" onerror="this.style.display='none'" />
             </div>
 
-            <div class="cert-buttons">
-                <button class="btn btn-secondary" onclick="restartGame()">再玩一次</button>
+            <div style="margin: 30px 0 40px 0;">
+                <p style="font-size: 16px; color: #333; line-height: 2;">愿你在网易的旅程，<br>收获长久的成长、陪伴与热爱。<br><span style="color: #C41E3A; font-weight: bold;">期待与你，网易相见！</span></p>
             </div>
-            <!-- 底部居中soci点赞 -->
-            <img class="page-logo" src="./images/soci大拇指点赞.png" alt="soci点赞" style="width: 200px; height: 200px;" onerror="this.style.display='none'" />
+
+            <button class="btn" onclick="restartGame()">再玩一次</button>
         </div>
 
         <!-- 页9：第四关·数字密码 -->
@@ -878,7 +879,7 @@
                 - 遇事不决需帮助？还是找 Soci
             </p>
             <img src="./images/soci-helper.png" alt="soci小助" style="width: 120px; height: auto; display: block; margin: 0 auto 20px;" onerror="this.style.display='none'" />
-            <button class="btn" onclick="goToCertificate()">前往证书页</button>
+            <button class="btn" onclick="goToCertificate()">前往下一页</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
