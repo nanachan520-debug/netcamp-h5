@@ -477,7 +477,7 @@
         }
 
         .certificate-identity {
-            font-size: 16px;
+            font-size: 24px;
             color: #C41E3A;
             font-weight: bold;
             margin-top: 10px;
@@ -560,7 +560,7 @@
         <div id="page1" class="page active">
             <div class="cover-decoration">🚀</div>
             <h1 class="page-title">网易探索之旅</h1>
-            <p class="page-subtitle">7个神秘关卡<br>测测你对未来东家了解多少</p>
+            <p class="page-subtitle">7个神秘关卡，让你更加了解网易</p>
             <button class="btn" onclick="startGame()">开始闯关</button>
             <!-- 右下角IP照片 -->
             <img class="ip-photo ip-corner-bottom" src="./images/soci划重点.png" alt="soci划重点" onerror="this.style.display='none'" />
@@ -609,7 +609,7 @@
                 <p class="question-text">以下哪个不是网易游戏的代表作品？</p>
                 <div class="options-grid">
                     <div class="option-item" id="q2-option-A" onclick="selectOption(2, 'A')">A. 梦幻西游</div>
-                    <div class="option-item" id="q2-option-B" onclick="selectOption(2, 'B')">B. 阴阳师</div>
+                    <div class="option-item" id="q2-option-B" onclick="selectOption(2, 'B')">B. 燕云十六声</div>
                     <div class="option-item" id="q2-option-C" onclick="selectOption(2, 'C')">C. 网易云音乐</div>
                     <div class="option-item" id="q2-option-D" onclick="selectOption(2, 'D')">D. 蛋仔派对</div>
                 </div>
@@ -702,7 +702,8 @@
             <img class="egg-real-image" src="./images/egg3-cat.jpg" alt="网易猫咪" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <div class="egg-image" style="display:none;">🐱</div>
             <p class="egg-content">
-                网易部分园区里住着一群特殊的"同事"——网易喵。入职后说不定能在园区偶遇它们哦～
+                网易部分园区里住着一群特殊的"同事"——网易喵。<br>
+                入职后说不定能在园区偶遇它们哦～
             </p>
             <button class="btn" onclick="showPage(9)">前往下一关</button>
             <!-- 底部居中logo -->
@@ -724,10 +725,8 @@
             <div class="cert-buttons">
                 <button class="btn btn-secondary" onclick="restartGame()">再玩一次</button>
             </div>
-            <!-- 底部居中logo -->
-            <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
-            <!-- 右下角IP照片 -->
-            <img class="ip-photo ip-corner-bottom-small" src="./images/soci大拇指点赞.png" alt="soci点赞" onerror="this.style.display='none'" />
+            <!-- 底部居中soci点赞 -->
+            <img class="page-logo" src="./images/soci大拇指点赞.png" alt="soci点赞" style="width: 200px; height: 200px;" onerror="this.style.display='none'" />
         </div>
 
         <!-- 页9：第四关·数字密码 -->
@@ -756,7 +755,7 @@
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【长长久久的祝福】</div>
             <p class="egg-content">
-                "9999"不仅是代码，更是网易对每一位同学的承诺。愿你在网易的旅程，收获长久的成长、陪伴与热爱。
+                "9999"不仅是代码，更是网易对每一位同学的祝愿。愿你在网易的旅程，收获长久的成长、陪伴与热爱。
             </p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0;">
                 <img src="./images/badge-1year.png" alt="1周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
@@ -765,11 +764,10 @@
                 <img src="./images/badge-10year.png" alt="10周年" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
                 <img src="./images/ring-10year.png" alt="10周年戒指" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'" />
             </div>
+            <p style="font-size: 12px; color: #999; text-align: center; margin-bottom: 20px;">在你入职后的第1、3、6、10年会收到司龄徽章哦</p>
             <button class="btn" onclick="showPage(11)">前往下一关</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
-            <!-- 广告位 -->
-            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
         </div>
 
         <!-- 页11：第五关·时光印记 -->
@@ -790,32 +788,35 @@
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
         </div>
 
-        <!-- 页12：彩蛋页⑤-第一件文化衫的秘密 -->
+        <!-- 页12：彩蛋页⑤-网易er专属文化衫 -->
         <div id="page12" class="page">
             <div class="egg-header">
                 <img class="ip-unlock" src="./images/soci奸笑.png" alt="解锁" width="40" height="40" onerror="this.style.display='none'" />
                 <h2 class="egg-title" style="margin-bottom: 0;">恭喜！解锁隐藏彩蛋⑤</h2>
             </div>
-            <div class="egg-title" style="font-size: 18px; color: #333;">【第一件文化衫的秘密】</div>
+            <div class="egg-title" style="font-size: 18px; color: #333;">【网易er专属文化衫】</div>
             <p class="egg-content">
-                每一年的司庆，网易都会为员工定制专属文化衫。2026年是网易29岁生日，你的第一件文化衫，正在等你！
+                每年的6月24日是司庆日，我们在这天穿上承接热爱气质的文化衫，用各种特别的方式祝网易生日快乐！<br>
+                我们不仅穿同样的衣服，也将共同的本质穿在身上，<br>
+                永远庆祝热爱，为用户，为我们，为每一个你。
             </p>
+            <img class="egg-real-image" src="./images/culture-shirt.jpg" alt="文化衫" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">👕</div>
+            <p style="font-size: 12px; color: #999; text-align: center; margin-bottom: 20px;">25周年至28周年文化衫图案，均来自网易员工创作</p>
             <button class="btn" onclick="showPage(13)">前往下一关</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
-            <!-- 广告位 -->
-            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
         </div>
 
-        <!-- 页13：第六关·精品信仰 -->
+        <!-- 页13：第六关·精品本质 -->
         <div id="page13" class="page">
-            <div class="page-title">第六关 · 精品信仰</div>
+            <div class="page-title">第六关 · 精品本质</div>
             <div class="question-box">
-                <p class="question-text">"网易出品，必属精品"是网易人的信念。以下哪个也是网易对"精品"的追求？</p>
+                <p class="question-text">"网易出品，必属精品"是网易人经过长期努力而赢得的赞誉，这份努力依靠以下哪点？</p>
                 <div class="options-grid">
-                    <div class="option-item" id="q5-option-A" onclick="selectOption(5, 'A')">A. 游戏画面4K</div>
-                    <div class="option-item" id="q5-option-B" onclick="selectOption(5, 'B')">B. 员工食堂也要做"精品"</div>
-                    <div class="option-item" id="q5-option-C" onclick="selectOption(5, 'C')">C. 代码0 Bug</div>
+                    <div class="option-item" id="q5-option-A" onclick="selectOption(5, 'A')">A. 坚持不断地创新</div>
+                    <div class="option-item" id="q5-option-B" onclick="selectOption(5, 'B')">B. 保持极客精神，坚持创造精品</div>
+                    <div class="option-item" id="q5-option-C" onclick="selectOption(5, 'C')">C. 勇于创新、善于思考、充满抱负的员工</div>
                     <div class="option-item" id="q5-option-D" onclick="selectOption(5, 'D')">D. 全部都是</div>
                 </div>
             </div>
@@ -833,13 +834,16 @@
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【舌尖上的网易】</div>
             <p class="egg-content">
-                网易食堂每天提供N道菜品！从广式烧腊到杭州片儿川，从川味小炒到日式拉面。精品，从每一顿饭开始。
+                员工是网易最大的财富，我们关注你的衣食住行。<br>
+                网易食堂每天提供N道菜品，<br>
+                从广式烧腊到杭州片儿川，从川味小炒到日式拉面。<br>
+                精品，从每一顿饭开始。
             </p>
+            <img class="egg-real-image" src="./images/canteen.png" alt="食堂" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="egg-image" style="display:none;">🍚</div>
             <button class="btn" onclick="showPage(15)">前往下一关</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
-            <!-- 广告位 -->
-            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
         </div>
 
         <!-- 页15：第七关·你的后盾 -->
@@ -868,19 +872,15 @@
             </div>
             <div class="egg-title" style="font-size: 18px; color: #333;">【你的网易"导航员"】</div>
             <p class="egg-content">
-                在网易，你不是一个人在战斗。<br>
-                HRGSOC（HR全球共享运营中心）的 Soci 小助，会陪伴你整个网易历程：<br>
+                在网易，你不是一个人在战斗。HRGSOC（HR全球共享运营中心）会陪伴你整个网易历程，吉祥物Soci是你的网易搭子：<br>
                 - 入职流程不清楚？找 Soci<br>
                 - 档户业务想办理？找 Soci<br>
                 - 遇事不决需帮助？还是找 Soci
             </p>
-            <img class="egg-real-image" src="./images/soci-helper.png" alt="soci小助" style="max-height: 180px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <div class="egg-image" style="display:none;">🤖</div>
+            <img src="./images/soci-helper.png" alt="soci小助" style="width: 120px; height: auto; display: block; margin: 0 auto 20px;" onerror="this.style.display='none'" />
             <button class="btn" onclick="goToCertificate()">前往证书页</button>
             <!-- 底部居中logo -->
             <img class="page-logo" src="./images/logo.png" alt="网易logo" onerror="this.style.display='none'" />
-            <!-- 广告位 -->
-            <div class="ad-banner" onclick="showAdTip()">💬 需要帮助？ soci 小助随时在线 →</div>
         </div>
     </div>
 
